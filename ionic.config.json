@@ -1,0 +1,7 @@
+{
+  "name": "QuickTrade",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
