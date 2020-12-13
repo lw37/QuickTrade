@@ -1,20 +1,76 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Quick Trade
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-item>
+    <ion-label>Nombre :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Descripción :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label>Categoria</ion-label>
+    <ion-select (ionChange)="seleccion($event)" placeholder="Select Categoria">
+      <ion-select-option value="tecnologia" (click)="seleccion(value)">Tecnologia</ion-select-option>
+      <ion-select-option value="inmobiliaria">Inmobiliaria</ion-select-option>
+      <ion-select-option value="motor">Motor</ion-select-option>
+    </ion-select>
+  </ion-item>
+  
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-item *ngIf="elementos=='motor'">
+    <ion-select placeholder="Select un motor">
+      <ion-select-option value="coche">Coche</ion-select-option>
+      <ion-select-option value="moto">Moto</ion-select-option>
+    </ion-select>
+    <ion-item>
+      <ion-label>KM :</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Año :</ion-label>
+      <ion-input></ion-input>
+    </ion-item>
+  </ion-item>
+
+
+  <ion-item *ngIf="elementos=='inmobiliaria'">
+  <ion-item>
+    <ion-label position="floating">Metro Cuadrados :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nº Baños :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nº Habitaciones :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Localidad :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  </ion-item>
+
+  <ion-item *ngIf="elementos=='tecnologia'"> 
+    <ion-select placeholder="Selecciona un estado">
+      <ion-select-option value="nuevo">Nuevo</ion-select-option>
+      <ion-select-option value="usado">Usado</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Precio :</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+
+
 </ion-content>

@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  elementos: string="vacio";
+  ocultar:boolean=false;
   constructor() {}
 
+  seleccion(elem){
+    this.elementos=elem.target.value;
+  }
 }
