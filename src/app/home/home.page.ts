@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Iinmobiliaria, Imotor, Itecnologia } from '../interfaces';
-
+import { ToastController } from '@ionic/angular';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -28,7 +28,24 @@ export class HomePage {
   inmobiliaria: Iinmobiliaria[] = [];
   tecnologia: Itecnologia[] = [];
 
-  constructor() { }
+  constructor(private _toastCtrl:ToastController) { }
+  async presentToast() {
+    const toast = await this._toastCtrl.create({
+      message: 'Producto Añadido',
+      duration: 2000,
+      position:"bottom"
+    });
+    toast.present();
+  }
+  async presentToast1() {
+    const toast = await this._toastCtrl.create({
+      message: 'Debes elegir un categoria',
+      duration: 2000,
+      position:"bottom"
+    });
+    toast.present();
+  }
+
 
   seleccion(elem) {
     this.elementos = elem.target.value;
@@ -46,6 +63,7 @@ export class HomePage {
         "anyo": this.anyo,
         "precio": this.precio
       });
+      this.presentToast();
     } else if (this.elementos == "inmobiliaria") {
       this.inmobiliaria.push({
         "nombre":this.nombre,
@@ -57,7 +75,8 @@ export class HomePage {
         "localidad": this.localidad,
         "precio": this.precio
       });
-    } else {
+      this.presentToast();
+    } else if(this.elementos=="tecnologia") {
       this.tecnologia.push({
         "nombre":this.nombre,
         "descripcion":this.descripcion,
@@ -65,7 +84,11 @@ export class HomePage {
         "estado": this.estado,
         "precio": this.precio
       });
+      this.presentToast();
+    }else{
+      this.presentToast1();
     }
+
   }
 
 }
