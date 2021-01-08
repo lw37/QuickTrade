@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ProductList</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  
+  <ion-card *ngFor="let item of motor">
+    <ion-card-header>
+      <ion-card-title>{{item.categoria}}</ion-card-title>
+    </ion-card-header>
+    Nombre: {{item.nombre}}
+    Descripción: {{item.descripcion}}
+    Tipo: {{item.tipo}}
+    KM: {{item.km}}
+    Año: {{item.anyo}}
+    Precio: {{item.precio}}
+    <ion-card-content>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let item of inmobiliaria">
+    <ion-card-header>
+      <ion-card-title>{{item.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Nombre: {{item.nombre}}
+      Descripción: {{item.descripcion}}
+      MetroCuadrado: {{item.metroCuadrado}}
+      NºBaños: {{item.numBanyo}}
+      NºHabitaciones: {{item.numHabitacion}}
+      Localidad: {{item.localidad}}
+      Precio: {{item.precio}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngFor="let item of tecnologia">
+    <ion-card-header>
+      <ion-card-title>{{item.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Nombre: {{item.nombre}}
+      Descripción: {{item.descripcion}}
+      Estado: {{item.estado}}
+      Precio: {{item.precio}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
