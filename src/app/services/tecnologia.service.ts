@@ -1,34 +1,39 @@
 import { Injectable } from '@angular/core';
-import { Imotor } from '../interfaces';
+import { Itecnologia } from '../interfaces';
 
 @Injectable()
 
-export class motorService{
+export class tecnologiaService {
 
-    motores:Imotor[]=[
-        {
-            "nombre": "Mercedes X2",
-            "descripcion":"Seminuevo comprado en 2009",
-            "categoria": "motor",
-            "tipo": "Coche",
-            "km": 20000,
-            "anyo": 2009,
-            "precio": 8000
-          },
-          {
-            "nombre": "Mercedes X3",
-            "descripcion":"Seminuevo comprado en 2012",
-            "categoria": "motor",
-            "tipo": "Coche",
-            "km": 20000,
-            "anyo": 2012,
-            "precio": 10000
-          }
-    ]
-
-    getMotor(): Imotor[]{
-        return this.motores;
+  tecnologias: Itecnologia[] = [
+    {
+      "id": 5,
+      "nombre": "portatil msi RTX3090",
+      "descripcion": "1mes de uso",
+      "categoria": "tecnologias",
+      "estado": "usado",
+      "precio": 20000
+    },
+    {
+      "id": 6,
+      "nombre": "portatil msi RTX3060",
+      "descripcion": "Totalmente nuevo ",
+      "categoria": "tecnologia",
+      "estado": "nuevo",
+      "precio": 15000
     }
+  ]
 
+  getTecnologias(): Itecnologia[] {
+    return this.tecnologias;
+  }
+  getTecnologia(id: number): Itecnologia {
+    for (const inm of this.tecnologias) {
+      if (inm.id==id){
+        return inm;
+      }
+    }
+    return null;
+  }
 }
 
