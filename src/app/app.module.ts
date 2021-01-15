@@ -9,15 +9,18 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import{motorService} from './services/motor.service';
-import{inmobiliariaService} from './services/inmobiliaria.service';
-import{tecnologiaService} from './services/tecnologia.service';
-import { from } from 'rxjs';
-
+import { motorService } from './services/motor.service';
+import { inmobiliariaService } from './services/inmobiliaria.service';
+import { tecnologiaService } from './services/tecnologia.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabase, AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule
+    , AngularFireModule.initializeApp(environment.firebaseConfig,
+      AngularFireDatabase)],
   providers: [
     StatusBar,
     SplashScreen,
@@ -28,4 +31,4 @@ import { from } from 'rxjs';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
