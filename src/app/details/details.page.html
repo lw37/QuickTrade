@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="categoria=='motor'">
+    <ion-card-header>
+      <ion-card-title>{{motor.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      Nombre: {{motor.nombre}}
+      Descripción: {{motor.descripcion}}
+      Tipo: {{motor.tipo}}
+      KM: {{motor.km}}
+      Año: {{motor.anyo}}
+      Precio: {{motor.precio}}
+    </ion-card-content>
+    
+  </ion-card>
+
+  <ion-card *ngIf="categoria=='inmobiliaria'">
+    <ion-card-header>
+      <ion-card-title>{{inmobiliaria.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Nombre: {{inmobiliaria.nombre}}
+      Descripción: {{inmobiliaria.descripcion}}
+      MetroCuadrado: {{inmobiliaria.metroCuadrado}}
+      NºBaños: {{inmobiliaria.numBanyo}}
+      NºHabitaciones: {{inmobiliaria.numHabitacion}}
+      Localidad: {{inmobiliaria.localidad}}
+      Precio: {{inmobiliaria.precio}}
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card *ngIf="categoria=='tecnologia'">
+    <ion-card-header>
+      <ion-card-title>{{tecnologia.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Nombre: {{tecnologia.nombre}}
+      Descripción: {{tecnologia.descripcion}}
+      Estado: {{tecnologia.estado}}
+      Precio: {{tecnologia.precio}}
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
