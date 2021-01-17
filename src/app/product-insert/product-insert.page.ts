@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastController } from '@ionic/angular';
+import { motorService } from '../services/motor.service';
+import { inmobiliariaService } from '../services/inmobiliaria.service';
+import { tecnologiaService } from '../services/tecnologia.service';
+
 
 @Component({
   selector: 'app-product-insert',
@@ -7,8 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductInsertPage implements OnInit {
 
-
-  constructor(private _toastCtrl:ToastController) { }
+  elementos: string = "vacio";
+  ocultar: boolean = false;
+  id:number=0;
+  nombre:string="";
+  descripcion:string="";
+  categoria: string = "";
+  estado: string = "";
+  precio: number = 0;
+  metrosCuadrado: number=0;
+  numBanyo: number=0;
+  numHabitacion: number=0;
+  localidad: string="";
+  tipo: string="";
+  km: number=0;
+  anyo: number=0;
+  
+  constructor(private _toastCtrl:ToastController,private _motorService:motorService ,
+    private _inmobiliariasService:inmobiliariaService, private _tecnologiaService:tecnologiaService) { }
   async presentToast() {
     const toast = await this._toastCtrl.create({
       message: 'Producto Añadido',
@@ -36,7 +57,8 @@ export class ProductInsertPage implements OnInit {
 
   insertar() {
     if (this.elementos == "motor") {
-      this.motor.push({
+        let motor={
+          "id":this.id,
         "nombre":this.nombre,
         "descripcion":this.descripcion,
         "categoria": this.categoria,
@@ -44,10 +66,12 @@ export class ProductInsertPage implements OnInit {
         "km": this.km,
         "anyo": this.anyo,
         "precio": this.precio
-      });
+      }
+      this._motorService.setMotor(motor);
       this.presentToast();
     } else if (this.elementos == "inmobiliaria") {
-      this.inmobiliaria.push({
+      let inmobiliaria={
+        "id":this.id,
         "nombre":this.nombre,
         "descripcion":this.descripcion,
         "categoria": this.categoria,
@@ -56,16 +80,19 @@ export class ProductInsertPage implements OnInit {
         "numHabitacion": this.numHabitacion,
         "localidad": this.localidad,
         "precio": this.precio
-      });
+      }
+      this._inmobiliariasService.setInmobiliariar(inmobiliaria);
       this.presentToast();
     } else if(this.elementos=="tecnologia") {
-      this.tecnologia.push({
+     let tecnologia={
+        "id":this.id,
         "nombre":this.nombre,
         "descripcion":this.descripcion,
         "categoria": this.categoria,
         "estado": this.estado,
         "precio": this.precio
-      });
+      }
+      this._tecnologiaService.setTecnologia(tecnologia);
       this.presentToast();
     }else{
       this.presentToast1();

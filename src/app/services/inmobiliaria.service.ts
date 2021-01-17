@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Iinmobiliaria } from '../interfaces';
 
 @Injectable()
 
 export class inmobiliariaService {
 
-  inmobiliarias: Iinmobiliaria[] = [
+ /* inmobiliarias: Iinmobiliaria[] = [
     {
       "id":1,
       "nombre": "Casa",
@@ -41,6 +42,14 @@ export class inmobiliariaService {
       
     }
     return null;
+  }*/
+  constructor(private _db:AngularFireDatabase){
+
+  }
+
+  setInmobiliariar(inmobiliaria:Iinmobiliaria){
+    let ref=this._db.database.ref('Inmobiliarias');
+    ref.push(inmobiliaria);
   }
 
 }

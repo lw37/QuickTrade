@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Imotor } from '../interfaces';
 
 @Injectable()
 
 export class motorService {
 
-  motores: Imotor[] = [
+ /* motores: Imotor[] = [
     {
       "id": 3,
       "nombre": "Mercedes X2",
@@ -39,6 +40,14 @@ export class motorService {
       }
     }
    return null;
+  }*/
+  constructor(private _db:AngularFireDatabase){
+
+  }
+
+  setMotor(motor:Imotor){
+    let ref=this._db.database.ref('Motores');
+    ref.push(motor);
   }
 }
 

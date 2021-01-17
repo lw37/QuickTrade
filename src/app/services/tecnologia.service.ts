@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Itecnologia } from '../interfaces';
 
 @Injectable()
 
 export class tecnologiaService {
 
-  tecnologias: Itecnologia[] = [
+  /*tecnologias: Itecnologia[] = [
     {
       "id": 5,
       "nombre": "portatil msi RTX3090",
@@ -34,6 +35,14 @@ export class tecnologiaService {
       }
     }
     return null;
+  }*/
+  constructor(private _db:AngularFireDatabase){
+
+  }
+
+  setTecnologia(tecnologia:Itecnologia){
+    let ref=this._db.database.ref('Tecnologias');
+    ref.push(tecnologia);
   }
 }
 

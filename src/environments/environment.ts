@@ -3,10 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false ,
-    firebaseConfig : {
+  production: false,
+   firebaseConfig :{
     apiKey: "AIzaSyCBl2v6HqDo4KZzayxVQcd1dqLiTPorcAc",
     authDomain: "quicktrade-a8ed5.firebaseapp.com",
+    databaseURL: "https://quicktrade-a8ed5-default-rtdb.firebaseio.com",
     projectId: "quicktrade-a8ed5",
     storageBucket: "quicktrade-a8ed5.appspot.com",
     messagingSenderId: "332994812363",
