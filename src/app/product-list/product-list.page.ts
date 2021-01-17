@@ -10,7 +10,12 @@ import { tecnologiaService } from '../services/tecnologia.service';
   styleUrls: ['./product-list.page.scss'],
 })
 export class ProductListPage implements OnInit {
-
+  
+  id:string="";
+  keys=[];
+  tecnologias=[];
+  motores=[];
+  inmobiliarias=[];
 
   constructor(private _motorService: motorService,
     private _inmobiliariasService: inmobiliariaService, 
@@ -25,10 +30,34 @@ export class ProductListPage implements OnInit {
     
     ref1.once("value",snapshot=>{
       snapshot.forEach(child=>{
-        console.log(child.key)
-      })
-    })
+        let inmobiliaria=child.val();
+        inmobiliaria.key=child.key;
+        this.inmobiliarias.push(inmobiliaria);
+        console.log(inmobiliaria);
 
+      })
+    }
+    );
+    ref2.once("value",snapshot=>{
+      snapshot.forEach(child=>{
+        let motor=child.val();
+        motor.key=child.key;
+        this.motores.push(motor);
+        console.log(child.key);
+      })
+    });
+        
+    ref3.once("value",snapshot=>{
+      snapshot.forEach(child=>{
+        let tecnologia=child.val();
+        tecnologia.key=child.key;
+        this.tecnologias.push(tecnologia);
+        console.log(child.key);
+      })
+    });
+  }
+
+  click(){
 
   }
 
