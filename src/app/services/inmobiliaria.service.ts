@@ -1,4 +1,6 @@
+import { Reference } from '@angular/compiler/src/render3/r3_ast';
 import { Injectable } from '@angular/core';
+import { FirebaseApp } from '@angular/fire';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Iinmobiliaria } from '../interfaces';
 
@@ -43,8 +45,14 @@ export class inmobiliariaService {
     }
     return null;
   }*/
+
+
   constructor(private _db:AngularFireDatabase){
 
+  }
+  getInmobiliarias():firebase.default.database.Reference{
+    let ref=this._db.database.ref('Inmobiliarias');
+    return ref;
   }
 
   setInmobiliariar(inmobiliaria:Iinmobiliaria){

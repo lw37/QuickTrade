@@ -44,7 +44,10 @@ export class motorService {
   constructor(private _db:AngularFireDatabase){
 
   }
-
+  getMotores(): firebase.default.database.Reference {
+    let ref=this._db.database.ref('Motores');
+    return ref
+  }
   setMotor(motor:Imotor){
     let ref=this._db.database.ref('Motores');
     ref.push(motor);

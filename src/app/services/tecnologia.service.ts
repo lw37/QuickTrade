@@ -39,7 +39,10 @@ export class tecnologiaService {
   constructor(private _db:AngularFireDatabase){
 
   }
-
+  getTecnologias(): firebase.default.database.Reference {
+    let ref=this._db.database.ref('Tecnologias');
+    return ref;
+  }
   setTecnologia(tecnologia:Itecnologia){
     let ref=this._db.database.ref('Tecnologias');
     ref.push(tecnologia);
