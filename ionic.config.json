@@ -1,9 +1,6 @@
 {
-  "name": "QuickTrade",
+  "name": "MyApp",
   "integrations": {
-    "capacitor": {
-      "enabled": false
-    },
     "cordova": {}
   },
   "type": "angular"
