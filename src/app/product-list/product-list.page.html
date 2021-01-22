@@ -30,7 +30,7 @@
 
       Precio: {{item.precio}}
     </ion-card-content>
-    <ion-button expand="block" [routerLink]="['/details',item.key,item.id]" routerDirection="forward">Detalles</ion-button>
+    <ion-button expand="block" [routerLink]="['/details',item.key]" routerDirection="forward">Detalles</ion-button>
   </ion-card>
 
   <ion-card *ngFor="let item of tecnologias">

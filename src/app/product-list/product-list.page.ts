@@ -10,54 +10,50 @@ import { tecnologiaService } from '../services/tecnologia.service';
   styleUrls: ['./product-list.page.scss'],
 })
 export class ProductListPage implements OnInit {
-  
-  id:string="";
-  keys=[];
-  tecnologias=[];
-  motores=[];
-  inmobiliarias=[];
+
+  id: string = "";
+  keys = [];
+  tecnologias = [];
+  motores = [];
+  inmobiliarias = [];
 
   constructor(private _motorService: motorService,
-    private _inmobiliariasService: inmobiliariaService, 
-    private _tecnologiaService: tecnologiaService) { 
+    private _inmobiliariasService: inmobiliariaService,
+    private _tecnologiaService: tecnologiaService) {
 
-    }
-
-  ngOnInit() {
-    let ref1=this._inmobiliariasService.getInmobiliarias();
-    let ref2=this._motorService.getMotores();
-    let ref3=this._tecnologiaService.getTecnologias();
-    
-    ref1.once("value",snapshot=>{
-      snapshot.forEach(child=>{
-        let inmobiliaria=child.val();
-        inmobiliaria.key=child.key;
-        this.inmobiliarias.push(inmobiliaria);
-        console.log(inmobiliaria);
-
-      })
-    }
-    );
-    ref2.once("value",snapshot=>{
-      snapshot.forEach(child=>{
-        let motor=child.val();
-        motor.key=child.key;
-        this.motores.push(motor);
-        console.log(child.key);
-      })
-    });
-        
-    ref3.once("value",snapshot=>{
-      snapshot.forEach(child=>{
-        let tecnologia=child.val();
-        tecnologia.key=child.key;
-        this.tecnologias.push(tecnologia);
-        console.log(child.key);
-      })
-    });
   }
 
-  click(){
+  ngOnInit() {
+    let ref = this._inmobiliariasService.getInmobiliarias();
+
+
+    ref.once("value", snapshot => {
+      snapshot.forEach(child => {
+        if (child.val().categoria == "motor") {
+          let motor = child.val();
+          motor.key = child.key;
+          this.motores.push(motor);
+          console.log(child.key);
+          console.log(motor);
+        } else if (child.val().categoria == "inmobiliaria") {
+          let inmobiliaria = child.val();
+          inmobiliaria.key = child.key;
+          this.inmobiliarias.push(inmobiliaria);
+          console.log(inmobiliaria);
+        } else if (child.val().categoria == "tecnologia") {
+          let tecnologia = child.val();
+          tecnologia.key = child.key;
+          this.tecnologias.push(tecnologia);
+          console.log(child.key);
+          console.log(tecnologia);
+        }
+      }
+      )
+    }
+    )
+  }
+
+  click() {
 
   }
 

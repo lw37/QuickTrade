@@ -40,11 +40,11 @@ export class tecnologiaService {
 
   }
   getTecnologias(): firebase.default.database.Reference {
-    let ref=this._db.database.ref('Tecnologias');
+    let ref=this._db.database.ref('Productos');
     return ref;
   }
   setTecnologia(tecnologia:Itecnologia){
-    let ref=this._db.database.ref('Tecnologias');
+    let ref=this._db.database.ref('Productos');
     ref.push(tecnologia);
   }
 }

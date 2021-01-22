@@ -51,12 +51,12 @@ export class inmobiliariaService {
 
   }
   getInmobiliarias():firebase.default.database.Reference{
-    let ref=this._db.database.ref('Inmobiliarias');
+    let ref=this._db.database.ref('Productos');
     return ref;
   }
 
   setInmobiliariar(inmobiliaria:Iinmobiliaria){
-    let ref=this._db.database.ref('Inmobiliarias');
+    let ref=this._db.database.ref('Productos');
     ref.push(inmobiliaria);
   }
 

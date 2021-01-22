@@ -45,11 +45,12 @@ export class motorService {
 
   }
   getMotores(): firebase.default.database.Reference {
-    let ref=this._db.database.ref('Motores');
+    let ref=this._db.database.ref('Productos');
     return ref
   }
+
   setMotor(motor:Imotor){
-    let ref=this._db.database.ref('Motores');
+    let ref=this._db.database.ref('Productos');
     ref.push(motor);
   }
 }

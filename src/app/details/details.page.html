@@ -5,20 +5,23 @@
 </ion-header>
 <ion-content>
 
-      {{item.categoria}}
-      Nombre: {{item.nombre}}
-      Descripción: {{item.descripcion}}
-      Tipo: {{item.tipo}}
-      KM: {{item.km}}
-      Año: {{item.anyo}}
-
-      MetroCuadrado: {{item.metroCuadrado}}
-      NºBaños: {{item.numBanyo}}
-      NºHabitaciones: {{item.numHabitacion}}
-      Localidad: {{item.localidad}}
-
-      Estado: {{item.estado}}
-
-      Precio: {{item.precio}}
-
+     Categoria {{producto.categoria}}
+      <div *ngIf="categoria==motor">
+      Nombre: {{producto.nombre}}
+      Descripción: {{producto.descripcion}}
+      Tipo: {{producto.tipo}}
+      KM: {{producto.km}}
+      Año: {{producto.anyo}}
+    </div>
+      <div *ngIf="categoria==inmobiliaria">
+      MetroCuadrado: {{producto.metroCuadrado}}
+      NºBaños: {{producto.numBanyo}}
+      NºHabitaciones: {{producto.numHabitacion}}
+      Localidad: {{producto.localidad}}
+    </div>
+      <div *ngIf="categoria==tecnologia">
+      Estado: {{producto.estado}}
+    </div>
+      Precio: {{producto.precio}}
+   
 </ion-content>

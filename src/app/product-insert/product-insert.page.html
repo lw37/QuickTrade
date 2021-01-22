@@ -27,7 +27,7 @@
   </ion-item>
 
 
-  <ion-item *ngIf="elementos=='motor'">
+  <ion-item *ngIf="categoria=='motor'">
     <ion-select [(ngModel)]="tipo" placeholder="Selecciona un tipo">
       <ion-select-option value="coche">Coche</ion-select-option>
       <ion-select-option value="moto">Moto</ion-select-option>
@@ -43,7 +43,7 @@
   </ion-item>
 
 
-  <ion-item *ngIf="elementos=='inmobiliaria'">
+  <ion-item *ngIf="categoria=='inmobiliaria'">
     <ion-item>
       <ion-label position="floating">Metro Cuadrados :</ion-label>
       <ion-input [(ngModel)]="metroCuadrado"></ion-input>
@@ -62,7 +62,7 @@
     </ion-item>
   </ion-item>
 
-  <ion-item *ngIf="elementos=='tecnologia'">
+  <ion-item *ngIf="categoria=='tecnologia'">
     <ion-select [(ngModel)]="estado" placeholder="Selecciona un estado">
       <ion-select-option value="nuevo">Nuevo</ion-select-option>
       <ion-select-option value="usado">Usado</ion-select-option>

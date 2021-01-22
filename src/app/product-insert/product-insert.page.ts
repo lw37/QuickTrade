@@ -12,7 +12,6 @@ import { tecnologiaService } from '../services/tecnologia.service';
 })
 export class ProductInsertPage implements OnInit {
 
-  elementos: string = "vacio";
   ocultar: boolean = false;
   id:number=0;
   nombre:string="";
@@ -27,6 +26,7 @@ export class ProductInsertPage implements OnInit {
   tipo: string="";
   km: number=0;
   anyo: number=0;
+
   
   constructor(private _toastCtrl:ToastController,private _motorService:motorService ,
     private _inmobiliariasService:inmobiliariaService, private _tecnologiaService:tecnologiaService) { }
@@ -51,12 +51,12 @@ export class ProductInsertPage implements OnInit {
   }
 
   seleccion(elem) {
-    this.elementos = elem.target.value;
+    this.categoria = elem.target.value;
     console.log(this.categoria);
   }
 
   insertar() {
-    if (this.elementos == "motor") {
+    if (this.categoria == "motor" ) {
         let motor={
           "id":this.id,
         "nombre":this.nombre,
@@ -69,7 +69,7 @@ export class ProductInsertPage implements OnInit {
       }
       this._motorService.setMotor(motor);
       this.presentToast();
-    } else if (this.elementos == "inmobiliaria") {
+    } else if (this.categoria == "inmobiliaria") {
       let inmobiliaria={
         "id":this.id,
         "nombre":this.nombre,
@@ -83,7 +83,7 @@ export class ProductInsertPage implements OnInit {
       }
       this._inmobiliariasService.setInmobiliariar(inmobiliaria);
       this.presentToast();
-    } else if(this.elementos=="tecnologia") {
+    } else if(this.categoria=="tecnologia") {
      let tecnologia={
         "id":this.id,
         "nombre":this.nombre,
