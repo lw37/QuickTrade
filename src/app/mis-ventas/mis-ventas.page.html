@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Mis-ventas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">puntacion :</ion-label>
+    <ion-input [(ngModel)]="puntuacion" aria-placeholder="introduce tu puntuación 1-5"></ion-input>
+  </ion-item>
+  <ion-card *ngFor="let item of productos">
+    <ion-card-header>
+      <ion-card-title>{{item.categoria}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      Nombre: {{item.nombre}}
+      Estado:{{item.estado}}
+      Precio: {{item.precio}}
+    </ion-card-content>
+    <ion-button (click)="insertar(item.id)">Enviar</ion-button>
+  </ion-card>
+</ion-content>
