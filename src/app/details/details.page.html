@@ -6,20 +6,20 @@
 <ion-content>
 
      Categoria {{producto.categoria}}
-      <div *ngIf="categoria==motor">
+      <div *ngIf="categoria=='motor'">
       Nombre: {{producto.nombre}}
       Descripción: {{producto.descripcion}}
       Tipo: {{producto.tipo}}
       KM: {{producto.km}}
       Año: {{producto.anyo}}
     </div>
-      <div *ngIf="categoria==inmobiliaria">
+      <div *ngIf="categoria=='inmobiliaria'">
       MetroCuadrado: {{producto.metroCuadrado}}
       NºBaños: {{producto.numBanyo}}
       NºHabitaciones: {{producto.numHabitacion}}
       Localidad: {{producto.localidad}}
     </div>
-      <div *ngIf="categoria==tecnologia">
+      <div *ngIf="categoria=='tecnologia'">
       Estado: {{producto.estado}}
     </div>
       Precio: {{producto.precio}}
